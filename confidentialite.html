@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ORDO — Confidentialité</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Cormorant+Garamond:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{--ink:#fbf9f4;--card:#fff;--line:#e8e1d2;--text:#2c2723;--dim:#6d6558;--gold:#c9a227;--goldd:#977a13}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--ink);color:var(--text);font-family:"Inter",system-ui,sans-serif;line-height:1.65;
+       background-image:radial-gradient(120% 45% at 50% 0%,rgba(240,212,124,.3),transparent 60%);background-attachment:fixed}
+  main{max-width:44rem;margin:0 auto;padding:48px 22px 80px}
+  h1{font-family:"Fraunces",Georgia,serif;font-size:38px;font-weight:600;margin:14px 0 0}
+  h2{font-family:"Fraunces",Georgia,serif;font-size:22px;font-weight:600;margin:34px 0 8px}
+  .kicker{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--goldd)}
+  .lead{font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;font-size:20px;color:var(--dim);margin-top:8px}
+  p,li{font-size:15.5px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin-top:16px;
+        box-shadow:0 1px 2px rgba(44,39,35,.04),0 10px 26px -18px rgba(44,39,35,.25)}
+  .rule{height:1px;background:linear-gradient(90deg,transparent,rgba(201,162,39,.5),transparent);margin:26px 0}
+  code{background:#f6f2e9;border:1px solid var(--line);border-radius:6px;padding:2px 6px;font-size:13.5px}
+  footer{margin-top:44px;text-align:center;color:var(--dim);font-size:13px}
+  svg.cross{width:44px;height:44px;color:var(--gold);display:block;margin:0 auto}
+</style>
+</head>
+<body>
+<main>
+  <svg class="cross" viewBox="0 0 48 48" aria-hidden="true">
+    <circle cx="24" cy="24" r="17.5" fill="none" stroke="currentColor" stroke-width="1" opacity=".3"/>
+    <g stroke="currentColor" stroke-width="1.7" stroke-linecap="round" opacity=".5">
+      <line x1="34.6" y1="13.4" x2="37.8" y2="10.2"/><line x1="13.4" y1="13.4" x2="10.2" y2="10.2"/>
+      <line x1="34.6" y1="34.6" x2="37.8" y2="37.8"/><line x1="13.4" y1="34.6" x2="10.2" y2="37.8"/>
+    </g>
+    <g fill="currentColor"><rect x="22.3" y="8.5" width="3.4" height="31" rx="1.7"/><rect x="13.5" y="18.3" width="21" height="3.4" rx="1.7"/></g>
+  </svg>
+
+  <p class="kicker" style="text-align:center;margin-top:16px">ORDO</p>
+  <h1 style="text-align:center">Confidentialité</h1>
+  <p class="lead" style="text-align:center">Ce que l'application fait de vos données : rien, ou presque.</p>
+
+  <div class="rule"></div>
+
+  <div class="card">
+    <h2 style="margin-top:0">En une phrase</h2>
+    <p style="margin-bottom:0">
+      ORDO fonctionne entièrement sur votre appareil, sans compte. Si vous en créez un — c'est
+      facultatif — vos données sont recopiées sur un serveur pour vous suivre d'un appareil à l'autre,
+      et rien d'autre. Ni publicité, ni traceur, ni mesure d'audience, ni revente.
+    </p>
+  </div>
+
+  <h2>Ce qui est enregistré, et où</h2>
+  <p>
+    Votre bilan quotidien, votre journal, votre profil (sensibilité, pratique, saint patron, date de
+    dernière confession, faiblesses nommées), votre paroisse et vos inscriptions aux chapitres sont
+    stockés dans la mémoire locale de votre navigateur (<code>localStorage</code>), sur votre téléphone
+    ou votre ordinateur. Ils n'en sortent jamais sans une action explicite de votre part.
+  </p>
+
+  <h2>Le compte, si vous en créez un</h2>
+  <p>
+    Créer un compte est facultatif : l'application est complète sans. Il sert à une seule chose,
+    retrouver votre progression sur un autre appareil ou après un changement de téléphone.
+  </p>
+  <ul>
+    <li><strong>Ce que vous fournissez</strong> : une adresse e-mail et un mot de passe. Le mot de passe
+      n'est jamais visible par nous : il est confié au service d'authentification, qui n'en conserve
+      qu'une empreinte chiffrée.</li>
+    <li><strong>Ce qui est synchronisé</strong> : votre bilan, votre journal, votre profil et vos
+      inscriptions — les mêmes données que sur votre appareil, ni plus, ni moins.</li>
+    <li><strong>Où</strong> : dans une base Firestore, hébergée par Google Cloud, dans un document qui
+      vous est propre. Des règles de sécurité vérifiées interdisent à tout autre compte d'y accéder,
+      en lecture comme en écriture.</li>
+    <li><strong>Combien de temps</strong> : tant que le compte existe. Sa suppression efface le document.</li>
+  </ul>
+  <p>
+    Ces données ne sont ni vendues, ni partagées, ni utilisées pour de la publicité ou l'entraînement
+    de modèles. Elles ne sont pas lues par nous : elles servent uniquement à vous être rendues.
+  </p>
+
+  <h2>Sans compte : sauvegarde et transfert</h2>
+  <ul>
+    <li><strong>Transfert par QR</strong> : votre nouvel appareil lit le code affiché par l'ancien.
+      Rien ne transite par internet.</li>
+    <li><strong>Copie ou fichier</strong> : vous générez vous-même un code de sauvegarde. Il reste chez vous.</li>
+  </ul>
+
+  <h2>Ce que la paroisse voit</h2>
+  <p>
+    Rien. Le code d'une paroisse vous montre ses événements ; il ne lui transmet ni votre identité, ni votre
+    bilan, ni la liste de vos inscriptions. ORDO n'est pas un fichier de paroisse.
+  </p>
+
+  <h2>Effacer vos données</h2>
+  <ul>
+    <li>Sur l'appareil : effacez les données de site de votre navigateur, ou supprimez l'application de l'écran d'accueil.</li>
+    <li>Si vous avez un compte : demandez sa suppression à l'adresse de contact ci-dessous. Le document
+      qui porte vos données est effacé, sans copie conservée.</li>
+    <li>Le bouton « Délier » (Mon profil) laisse vos données sur l'appareil et interrompt la synchronisation.</li>
+  </ul>
+
+  <h2>Mineurs</h2>
+  <p>
+    L'application ne s'adresse pas spécifiquement aux enfants et ne collecte volontairement aucune donnée
+    les concernant.
+  </p>
+
+  <h2>Contact</h2>
+  <p>
+    Pour toute question sur ces données : <strong>adresse de contact à compléter</strong> (dis-la-moi, je la mets en place).
+  </p>
+
+  <footer>
+    <p>Dernière mise à jour : juillet 2026 · ORDO</p>
+  </footer>
+</main>
+</body>
+</html>
